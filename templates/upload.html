@@ -1,0 +1,424 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+	<!-- custom css file link  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js">
+
+
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style>
+		html {
+			font-size: 100%;
+			overflow-x: hidden;
+			scroll-behavior: smooth;
+			scroll-padding-top: 9rem;
+		}
+
+		html::-webkit-scrollbar {
+			width: 1rem;
+		}
+
+		html::-webkit-scrollbar-track {
+			background: #111;
+		}
+
+		html::-webkit-scrollbar-thumb {
+			background: #29d9d5;
+			border-radius: 5rem;
+		}
+
+		body {
+			background-image: repeating-linear-gradient(#111, #29d9d5);
+
+			overflow-x: hidden;
+		}
+
+		section {
+			padding: 3rem 9%;
+		}
+
+		.heading {
+			text-align: center;
+			margin-bottom: 2rem;
+		}
+
+		.heading span {
+			color: #29d9d5;
+			font-size: 2rem;
+		}
+
+		.heading h1 {
+			font-size: 4rem;
+			color: #fff;
+		}
+
+		.btn {
+			margin-top: 1rem;
+			display: inline-block;
+			padding: 1rem 3rem;
+			font-size: 0.7rem;
+			color: #29d9d5;
+			border: 0.2rem solid #29d9d5;
+			border-radius: 5rem;
+			cursor: pointer;
+			background: none;
+		}
+
+		.btn:hover {
+			background: #29d9d5;
+			color: #111;
+		}
+
+		.header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 1000;
+			background: #222;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+			-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+			justify-content: space-between;
+			padding: 1.5rem 9%;
+		}
+
+		.header .navbar a {
+			font-size: 1rem;
+			color: #aaa;
+			display: inline-block;
+			margin: 0 1rem;
+		}
+
+		.header .navbar a:hover {
+			color: #29d9d5;
+		}
+
+		.header .btn {
+			margin-top: 0;
+		}
+
+		.logo {
+			font-size: 1.75rem;
+			color: #fff;
+			font-weight: bolder;
+		}
+
+		.logo i {
+			color: #29d9d5;
+			padding-right: .5rem;
+		}
+
+		#menu-btn {
+			font-size: 2.5rem;
+			color: #fff;
+			cursor: pointer;
+			display: none;
+		}
+
+		body {
+			margin-top: 170px;
+			background-image: linear-gradient(#111, #29d9d5);
+		}
+
+
+		.register {
+			background: -webkit-linear-gradient(left, #111, #29d9d5);
+			margin-top: 3%;
+			padding: 3%;
+		}
+
+
+		.register-left {
+			text-align: center;
+			color: #29d9d5;
+			margin-top: 4%;
+		}
+
+		.register-left input {
+			border: none;
+			border-radius: 1.5rem;
+			padding: 2%;
+			width: 60%;
+			background: #29d9d5;
+			font-weight: bold;
+			color: #000000;
+			margin-top: 3%;
+			margin-bottom: 3%;
+			cursor: pointer;
+		}
+
+		.register-right {
+			background: #f8f9fa;
+			border-top-left-radius: 10% 50%;
+			border-bottom-left-radius: 10% 50%;
+		}
+
+		.register-left img {
+			margin-top: 15%;
+			margin-bottom: 5%;
+			width: 100%;
+			-webkit-animation: mover 1s infinite alternate;
+			animation: mover 1s infinite alternate;
+		}
+
+		@-webkit-keyframes mover {
+			0% {
+				transform: translateY(0);
+			}
+
+			100% {
+				transform: translateY(-20px);
+			}
+		}
+
+		@keyframes mover {
+			0% {
+				transform: translateY(0);
+			}
+
+			100% {
+				transform: translateY(-20px);
+			}
+		}
+
+		.register-left p {
+			font-weight: lighter;
+			padding: 12%;
+			margin-top: -9%;
+		}
+
+		.register .register-form {
+			padding: 10%;
+			margin-top: 10%;
+		}
+
+		.btnRegister {
+			float: right;
+			margin-top: 10%;
+			border: none;
+			border-radius: 1.5rem;
+			padding: 2%;
+			background: #29d9d5;
+			color: #fff;
+			font-weight: 600;
+			width: 50%;
+			cursor: pointer;
+		}
+
+		.register .nav-tabs {
+			margin-top: 3%;
+			border: none;
+			background: #29d9d5;
+			border-radius: 1.5rem;
+			width: 28%;
+			float: right;
+		}
+
+		.register .nav-tabs .nav-link {
+			padding: 2%;
+			height: 34px;
+			font-weight: 600;
+			color: #fff;
+			border-top-right-radius: 1.5rem;
+			border-bottom-right-radius: 1.5rem;
+		}
+
+		.register .nav-tabs .nav-link:hover {
+			border: none;
+		}
+
+		.register .nav-tabs .nav-link.active {
+			width: 100px;
+			color: #111;
+			border: 2px solid #111;
+			border-top-left-radius: 1.5rem;
+			border-bottom-left-radius: 1.5rem;
+		}
+
+		.register-heading {
+			text-align: center;
+			margin-top: 8%;
+			margin-bottom: -15%;
+			color: #495057;
+		}
+	</style>
+</head>
+
+<body>
+
+	<header class="header">
+
+		<div id="menu-btn" class="fas fa-bars"></div>
+
+		<a data-aos="zoom-in-left" data-aos-delay="150" href="#" class="logo"> <i class=""></i>SAFE ZONE</a>
+
+		<nav class="navbar">
+			<a data-aos="zoom-in-left" data-aos-delay="300" href="index.html">home</a>
+			<a data-aos="zoom-in-left" data-aos-delay="450" href="index.html#about">about</a>
+			<a data-aos="zoom-in-left" data-aos-delay="600" href="index.html#destination">Found</a>
+			<a data-aos="zoom-in-left" data-aos-delay="750" href="index.html#destination">Lost</a>
+			<a data-aos="zoom-in-left" data-aos-delay="900" href="index.html#gallery">Contact</a>
+			<a data-aos="zoom-in-left" data-aos-delay="1150" href="index.html#blogs"></a>
+		</nav>
+
+		<a data-aos="zoom-in-left" data-aos-delay="1300" href="signin.html" class="btn">LOGIN NOW</a>
+
+	</header>
+	<div class="container register">
+		<div class="row">
+			<div class="col-md-3 register-left">
+				<img src="C:\Users\moust\Desktop\proj-test-dep\templates\images\Screenshot__5_-removebg-preview (4).png"
+					alt="">
+				<h3>Welcome</h3>
+				<p>Help us find a missing Person or find a match!</p>
+				<input type="submit" name="" value="Login"><br>
+			</div>
+			<div class="col-md-9 register-right">
+				<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+							aria-controls="home" aria-selected="true">Add Post</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+							aria-controls="profile" aria-selected="false">Find Match</a>
+					</li>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+						<h3 class="register-heading">Post</h3>
+						<div class="row register-form">
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Person Name *" value="">
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Person description *" value="">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" placeholder="Age*" value="">
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" placeholder="Last seen at*" value="">
+								</div>
+								<div class="form-group">
+									<div class="maxl">
+										<label class="radio inline">
+											<input type="radio" name="gender" value="male" checked="">
+											<span> Male </span>
+										</label>
+										<label class="radio inline">
+											<input type="radio" name="gender" value="female">
+											<span>Female </span>
+
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="email" class="form-control" placeholder="Your Email *" value=""
+										name="email">
+								</div>
+								<div class="form-group">
+									<input type="text" minlength="10" maxlength="10" name="txtEmpPhone"
+										class="form-control" placeholder="Your Phone *" value="" name="phone">
+								</div>
+								<div class="form-group">
+									<select class="form-control">
+										<option class="hidden" selected="" disabled="">City</option>
+										<option>Mansoura</option>
+										<option>Cairo</option>
+										<option>Alexandria</option>
+									</select>
+								</div>
+
+								<input type="submit" class="btnRegister" value="post">
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+						<h3 class="register-heading">Find Match</h3>
+						<div class="row register-form">
+							<div class="col-md-6">
+								<form action="http://192.168.38.206:5001/" method="post">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Person Name " value=""
+											name="name">
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Last seen at *" value=""
+											name="lastseen">
+									</div>
+									<div class="upload-btn-wrapper">
+										<button class="btn">Upload Person Photo</button>
+										<input type="file" name="file1" />
+									</div>
+									<div>
+										<p><label for="w3review"></label></p>
+										<textarea id="w3review" name="w3review" rows="4"
+											cols="50">Please add a specified person description </textarea>
+										<br>
+									</div>
+
+									<p>Make sure all the data entered is true and your contact info is included.</p>
+
+
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Phone Number *" value=""
+											name="phone">
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Email address *" value=""
+											name="email">
+									</div>
+									<div class="form-group">
+										<select class="form-control" name="country">
+											<option class="hidden" selected="" disabled="">Country</option>
+											<option>Saudia arabia</option>
+											<option>Bahrain</option>
+											<option>Egypt</option>
+										</select>
+									</div>
+									<input type="submit" class="btnRegister" value="Find Match">
+								</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+			<script>
+
+				AOS.init({
+					duration: 800,
+					offset: 150,
+				});
+
+			</script>
+		</div>
+
+		<script type="text/javascript"></script>
+</body>
+
+</html>

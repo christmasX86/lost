@@ -43,6 +43,7 @@ def upload_image():
 
     # If no valid image file was uploaded, show the file upload form:
     return '''
+
     <!doctype html>
     <title>Face matching</title>
     <h1>Face Matching POC</h1>
