@@ -11,29 +11,10 @@ body {
 	align-items: center;
 	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
-	height: 100vh;
+	height: 120vh;
 	margin: -20px 0 50px;
 }
-html {
-	font-size: 62.5%;
-	overflow-x: hidden;
-	scroll-behavior: smooth;
-	scroll-padding-top: 9rem;
-  }
-  
-  html::-webkit-scrollbar {
-	width: 1rem;
-  }
-  
-  html::-webkit-scrollbar-track {
-	background: #111;
-  }
-  
-  html::-webkit-scrollbar-thumb {
-	background: #29d9d5;
-	border-radius: 5rem;
-  }
-  
+
   body {
 	background-image: repeating-linear-gradient(#111, #29d9d5);
 	
@@ -41,7 +22,7 @@ html {
   }
   
   section {
-	padding: 3rem 9%;
+	padding: 30rem 9%;
   }
   
   .heading {

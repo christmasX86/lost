@@ -4,12 +4,37 @@
     <meta charset="utf-8">
     
     <title>light user grid - Bootdey.com</title>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- custom css file link  -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    
 </head>
 <body>
+    <header class="header">
+
+		<div id="menu-btn" class="fas fa-bars"></div>
+	
+		<a data-aos="zoom-in-left" data-aos-delay="150" href="#" class="logo"> <i class=""></i>SAFE ZONE</a>
+	
+		<nav class="navbar">
+			<a data-aos="zoom-in-left" data-aos-delay="300" href="index.html">home</a>
+			<a data-aos="zoom-in-left" data-aos-delay="450" href="index.html#about">about</a>
+			<a data-aos="zoom-in-left" data-aos-delay="600" href="index.html#destination">Found</a>
+			<a data-aos="zoom-in-left" data-aos-delay="750" href="index.html#destination">Lost</a>
+			<a data-aos="zoom-in-left" data-aos-delay="900" href="index.html#gallery">Contact</a>
+			<a data-aos="zoom-in-left" data-aos-delay="1150" href="index.html#blogs"></a>
+		</nav>
+	
+		<a data-aos="zoom-in-left" data-aos-delay="1300" href="signin.html" class="btn">LOGIN NOW</a>
+	
+	</header>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 
 <div class="container">
@@ -475,11 +500,34 @@
     </div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script>
+
+    AOS.init({
+        duration: 800,
+        offset:150,
+    });
+
+</script>
+<!-- partial -->
+  <script  src="./script.js"></script>
 <style type="text/css">
 body{margin-top:20px;
 background:#111;
 }
 /* Candidate List */
+body {
+	background:#111;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: 'Montserrat', sans-serif;
+	height: 250vh;
+	margin: -20px 0 50px;
+}
+
 .candidate-list {
   background: #ffffff;
   display: -webkit-box;

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <title> notifications page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- custom css file link  -->
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <header class="header">
+
+		<div id="menu-btn" class="fas fa-bars"></div>
+	
+		<a data-aos="zoom-in-left" data-aos-delay="150" href="#" class="logo"> <i class=""></i>SAFE ZONE</a>
+	
+		<nav class="navbar">
+			<a data-aos="zoom-in-left" data-aos-delay="300" href="index.html">home</a>
+			<a data-aos="zoom-in-left" data-aos-delay="450" href="index.html#about">about</a>
+			<a data-aos="zoom-in-left" data-aos-delay="600" href="index.html#destination">Found</a>
+			<a data-aos="zoom-in-left" data-aos-delay="750" href="index.html#destination">Lost</a>
+			<a data-aos="zoom-in-left" data-aos-delay="900" href="index.html#gallery">Contact</a>
+			<a data-aos="zoom-in-left" data-aos-delay="1150" href="index.html#blogs"></a>
+		</nav>
+	
+		<a data-aos="zoom-in-left" data-aos-delay="1300" href="signin.html" class="btn">LOGIN NOW</a>
+	
+	</header>
+<div class="container-xl px-4 mt-4">
+    <!-- Account page navigation-->
+    <nav class="nav nav-borders">
+        <a class="nav-link  ms-0" href="profile.html" target="__blank">Profile</a>
+        <a class="nav-link" href="" target="__blank">posts</a>
+        <a class="nav-link" href="security.html" target="__blank">Security</a>
+        <a class="nav-link active" href="notifications.html"  target="__blank">Notifications</a>
+    </nav>
+    <hr class="mt-0 mb-4">
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Email notifications preferences card-->
+            <div class="card card-header-actions mb-4">
+                <div class="card-header">
+                    Email Notifications
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" id="flexSwitchCheckChecked" type="checkbox" checked="">
+                        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <!-- Form Group (default email)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputNotificationEmail">Default notification email</label>
+                            <input class="form-control" id="inputNotificationEmail" type="email" value="name@example.com" disabled="">
+                        </div>
+                        <!-- Form Group (email updates checkboxes)-->
+                        <div class="mb-0">
+                            <label class="small mb-2">Choose which types of email updates you receive</label>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" id="checkAccountChanges" type="checkbox" checked="">
+                                <label class="form-check-label" for="checkAccountChanges">Changes made to your account</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" id="checkAccountGroups" type="checkbox" checked="">
+                                <label class="form-check-label" for="checkAccountGroups">Changes are made to groups you're part of</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" id="checkProductUpdates" type="checkbox" checked="">
+                                <label class="form-check-label" for="checkProductUpdates">post updates for posts you've published</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" id="checkProductNew" type="checkbox" checked="">
+                                <label class="form-check-label" for="checkProductNew">Information on new Lost person</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" id="checkPromotional" type="checkbox">
+                                <label class="form-check-label" for="checkPromotional">Donating camps</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" id="checkSecurity" type="checkbox" checked="" disabled="">
+                                <label class="form-check-label" for="checkSecurity">Security alerts</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- SMS push notifications card-->
+            <div class="card card-header-actions mb-4">
+                <div class="card-header">
+                    Push Notifications
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" id="smsToggleSwitch" type="checkbox" checked="">
+                        <label class="form-check-label" for="smsToggleSwitch"></label>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <!-- Form Group (default SMS number)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputNotificationSms">Default SMS number</label>
+                            <input class="form-control" id="inputNotificationSms" type="tel" value="123-456-7890" disabled="">
+                        </div>
+                        <!-- Form Group (SMS updates checkboxes)-->
+                        <div class="mb-0">
+                            <label class="small mb-2">Choose which types of push notifications you receive</label>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" id="checkSmsComment" type="checkbox" checked="">
+                                <label class="form-check-label" for="checkSmsComment">Someone comments on your post</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" id="checkSmsShare" type="checkbox">
+                                <label class="form-check-label" for="checkSmsShare">Someone shares your post</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" id="checkSmsFollow" type="checkbox" checked="">
+                                <label class="form-check-label" for="checkSmsFollow">A user follows your account</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" id="checkSmsGroup" type="checkbox">
+                                <label class="form-check-label" for="checkSmsGroup">New posts are made in groups you're part of</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" id="checkSmsPrivateMessage" type="checkbox" checked="">
+                                <label class="form-check-label" for="checkSmsPrivateMessage">You got a match</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <!-- Notifications preferences card-->
+            <div class="card">
+                <div class="card-header">Notification Preferences</div>
+                <div class="card-body">
+                    <form>
+                        <!-- Form Group (notification preference checkboxes)-->
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" id="checkAutoGroup" type="checkbox" checked="">
+                            <label class="form-check-label" for="checkAutoGroup">Automatically subscribe to notifications</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" id="checkAutoProduct" type="checkbox">
+                            <label class="form-check-label" for="checkAutoProduct">Automatically subscribe to new posts notifications</label>
+                        </div>
+                        <!-- Submit button-->
+                        <button class="btn btn-danger-soft text-danger">Unsubscribe from all notifications</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script>
+
+    AOS.init({
+        duration: 800,
+        offset:150,
+    });
+
+</script>
+<!-- partial -->
+  <script  src="./script.js"></script>
+<style type="text/css">
+  html {
+	font-size: 100%;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+	scroll-padding-top: 9rem;
+  }
+  
+  html::-webkit-scrollbar {
+	width: 1rem;
+  }
+  
+  html::-webkit-scrollbar-track {
+	background: #111;
+  }
+  
+  html::-webkit-scrollbar-thumb {
+	background: #29d9d5;
+	border-radius: 2rem;
+  }
+  
+  body {
+	background-image: repeating-linear-gradient(#111, #29d9d5);
+	
+	overflow-x: hidden;
+  }
+  
+  section {
+	padding: 3rem 9%;
+  }
+  
+  .heading {
+	text-align: center;
+	margin-bottom: 2rem;
+  }
+  
+  .heading span {
+	color: #29d9d5;
+	font-size: 2rem;
+  }
+  
+  .heading h1 {
+	font-size: 4rem;
+	color: #fff;
+  }
+  
+  .btn {
+	margin-top: 1rem;
+	display: inline-block;
+	padding: 1rem 3rem;
+	font-size: 0.7rem;
+	color: #29d9d5;
+	border: 0.2rem solid #29d9d5;
+	border-radius: 5rem;
+	cursor: pointer;
+	background: none;
+  }
+  
+  .btn:hover {
+	background: #29d9d5;
+	color: #111;
+  }
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	background: #222;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+		-ms-flex-align: center;
+			align-items: center;
+	-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+			justify-content: space-between;
+	padding: 1.5rem 9%;
+  }
+  
+  .header .navbar a {
+	font-size: 1rem;
+	color: #aaa;
+	display: inline-block;
+	margin: 0 1rem;
+  }
+  
+  .header .navbar a:hover {
+	color: #29d9d5;
+  }
+  
+  .header .btn {
+	margin-top: 0;
+  }
+  
+  .logo {
+	font-size: 1.75rem;
+	color: #fff;
+	font-weight: bolder;
+  }
+  
+  .logo i {
+	color: #29d9d5;
+	padding-right: .5rem;
+  }
+  
+  #menu-btn {
+	font-size: 2.5rem;
+	color: #fff;
+	cursor: pointer;
+	display: none;
+  }
+
+body{margin-top:100px;
+background-color:#111;
+color:#69707a;
+}
+.img-account-profile {
+    height: 10rem;
+}
+.rounded-circle {
+    border-radius: 50% !important;
+}
+.card {
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+}
+.card .card-header {
+    font-weight: 500;
+}
+.card-header:first-child {
+    border-radius: 0.35rem 0.35rem 0 0;
+}
+.card-header {
+    padding: 1rem 1.35rem;
+    margin-bottom: 0;
+    background-color: rgba(33, 40, 50, 0.03);
+    border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+}
+.form-control, .dataTable-input {
+    display: block;
+    width: 100%;
+    padding: 0.875rem 1.125rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #69707a;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #29d9d5;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.35rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.nav-borders .nav-link.active {
+    color: #29d9d5;
+    border-bottom-color: #29d9d5;
+}
+.nav-borders .nav-link {
+    color: #69707a;
+    border-bottom-width: 0.125rem;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.btn-danger-soft {
+    color: #000;
+    background-color: #f1e0e3;
+    border-color: #f1e0e3;
+}
+</style>
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
