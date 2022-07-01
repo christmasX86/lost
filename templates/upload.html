@@ -1,4 +1,5 @@
 <html>
+
 <head>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 	<!-- custom css file link  -->
@@ -15,9 +16,11 @@
 			scroll-behavior: smooth;
 			scroll-padding-top: 9rem;
 		}
+
 		html::-webkit-scrollbar {
 			width: 1rem;
 		}
+
 		html::-webkit-scrollbar-track {
 			background: #111;
 		}
@@ -26,26 +29,32 @@
 			background: #29d9d5;
 			border-radius: 5rem;
 		}
+
 		body {
 			background-image: repeating-linear-gradient(#111, #29d9d5);
 
 			overflow-x: hidden;
 		}
+
 		section {
 			padding: 3rem 9%;
 		}
+
 		.heading {
 			text-align: center;
 			margin-bottom: 2rem;
 		}
+
 		.heading span {
 			color: #29d9d5;
 			font-size: 2rem;
 		}
+
 		.heading h1 {
 			font-size: 4rem;
 			color: #fff;
 		}
+
 		.btn {
 			margin-top: 1rem;
 			display: inline-block;
@@ -57,10 +66,12 @@
 			cursor: pointer;
 			background: none;
 		}
+
 		.btn:hover {
 			background: #29d9d5;
 			color: #111;
 		}
+
 		.header {
 			position: fixed;
 			top: 0;
@@ -79,47 +90,57 @@
 			justify-content: space-between;
 			padding: 1.5rem 9%;
 		}
+
 		.header .navbar a {
 			font-size: 1rem;
 			color: #aaa;
 			display: inline-block;
 			margin: 0 1rem;
 		}
+
 		.header .navbar a:hover {
 			color: #29d9d5;
 		}
+
 		.header .btn {
 			margin-top: 0;
 		}
+
 		.logo {
 			font-size: 1.75rem;
 			color: #fff;
 			font-weight: bolder;
 		}
+
 		.logo i {
 			color: #29d9d5;
 			padding-right: .5rem;
 		}
+
 		#menu-btn {
 			font-size: 2.5rem;
 			color: #fff;
 			cursor: pointer;
 			display: none;
 		}
+
 		body {
 			margin-top: 170px;
 			background-image: linear-gradient(#111, #29d9d5);
 		}
+
 		.register {
 			background: -webkit-linear-gradient(left, #111, #29d9d5);
 			margin-top: 3%;
 			padding: 3%;
 		}
+
 		.register-left {
 			text-align: center;
 			color: #29d9d5;
 			margin-top: 4%;
 		}
+
 		.register-left input {
 			border: none;
 			border-radius: 1.5rem;
@@ -138,6 +159,7 @@
 			border-top-left-radius: 10% 50%;
 			border-bottom-left-radius: 10% 50%;
 		}
+
 		.register-left img {
 			margin-top: 15%;
 			margin-bottom: 5%;
@@ -145,6 +167,7 @@
 			-webkit-animation: mover 1s infinite alternate;
 			animation: mover 1s infinite alternate;
 		}
+
 		@-webkit-keyframes mover {
 			0% {
 				transform: translateY(0);
@@ -154,6 +177,7 @@
 				transform: translateY(-20px);
 			}
 		}
+
 		@keyframes mover {
 			0% {
 				transform: translateY(0);
@@ -163,15 +187,18 @@
 				transform: translateY(-20px);
 			}
 		}
+
 		.register-left p {
 			font-weight: lighter;
 			padding: 12%;
 			margin-top: -9%;
 		}
+
 		.register .register-form {
 			padding: 10%;
 			margin-top: 10%;
 		}
+
 		.btnRegister {
 			float: right;
 			margin-top: 10%;
@@ -184,6 +211,7 @@
 			width: 50%;
 			cursor: pointer;
 		}
+
 		.register .nav-tabs {
 			margin-top: 3%;
 			border: none;
@@ -192,6 +220,7 @@
 			width: 28%;
 			float: right;
 		}
+
 		.register .nav-tabs .nav-link {
 			padding: 2%;
 			height: 34px;
@@ -200,9 +229,11 @@
 			border-top-right-radius: 1.5rem;
 			border-bottom-right-radius: 1.5rem;
 		}
+
 		.register .nav-tabs .nav-link:hover {
 			border: none;
 		}
+
 		.register .nav-tabs .nav-link.active {
 			width: 100px;
 			color: #111;
@@ -210,6 +241,7 @@
 			border-top-left-radius: 1.5rem;
 			border-bottom-left-radius: 1.5rem;
 		}
+
 		.register-heading {
 			text-align: center;
 			margin-top: 8%;
@@ -218,6 +250,7 @@
 		}
 	</style>
 </head>
+
 <body>
 	<header class="header">
 		<div id="menu-btn" class="fas fa-bars"></div>
@@ -235,7 +268,7 @@
 	<div class="container register">
 		<div class="row">
 			<div class="col-md-3 register-left">
-				<img src="img.png" alt="img 1">
+				<img src="{{ url_for('static', filename = 'img.png') }}" alt="img 1">
 				<h3>Welcome</h3>
 				<p>Help us find a missing Person or find a match!</p>
 				<input type="submit" name="" value="Login"><br>
@@ -259,20 +292,29 @@
 					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 						<h3 class="register-heading">Post</h3>
 						<div class="row register-form">
-							<div class="col-md-6">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Person Name *" value="">
-								</div>
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Person description *" value="">
-								</div>
-								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Age*" value="">
-								</div>
-								<div class="form-group">
-									<input type="password" class="form-control" placeholder="Last seen at*" value="">
-								</div>
-								<div class="form-group">
+							<form action="/" method="post" enctype="multipart/form-data">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Person Name *" value=""
+											name="name2" required>
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Person description *"
+											value="" name="description" required>
+									</div>
+									<div class="form-group">
+										<input type="number" class="form-control" placeholder="Age*" value="" name="age"
+											min="0" required>
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Last seen at*" value=""
+											name="lastseen2" required>
+									</div>
+									<div class="form-group">
+										<input type="date" class="form-control" placeholder="Last seen date*" value=""
+											name="lastseendate2" required>
+									</div>
+									<!-- <div class="form-group">
 									<div class="maxl">
 										<label class="radio inline">
 											<input type="radio" name="gender" value="male" checked="">
@@ -284,29 +326,34 @@
 
 										</label>
 									</div>
+								</div> -->
 								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<input type="email" class="form-control" placeholder="Your Email *" value=""
-										name="email">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="email" class="form-control" placeholder="Your Email *" value=""
+											name="email2" required>
+									</div>
+									<div class="form-group">
+										<input type="text" minlength="10" maxlength="10" class="form-control"
+											placeholder="Your Phone *" value="" name="phone2" required>
+									</div>
+									<div class="form-group">
+										<select class="form-control" name="country2" required>
+											<option class="hidden" selected="" disabled="">City</option>
+											<option>Mansoura</option>
+											<option>Cairo</option>
+											<option>Alexandria</option>
+										</select>
+									</div>
+									<div class="upload-btn-wrapper">
+										<!-- <button class="btn">Upload Person Photo</button> -->
+										<input type="file" name="file2" required />
+									</div>
+									<input type="submit" class="btnRegister" value="post" name="makepost">
 								</div>
-								<div class="form-group">
-									<input type="text" minlength="10" maxlength="10" name="txtEmpPhone"
-										class="form-control" placeholder="Your Phone *" value="" name="phone">
-								</div>
-								<div class="form-group">
-									<select class="form-control">
-										<option class="hidden" selected="" disabled="">City</option>
-										<option>Mansoura</option>
-										<option>Cairo</option>
-										<option>Alexandria</option>
-									</select>
-								</div>
-
-								<input type="submit" class="btnRegister" value="post">
-							</div>
+							</form>
 						</div>
+
 					</div>
 					<!-- Content tany tab -->
 					<div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
@@ -315,7 +362,7 @@
 							<form action="/" method="post" enctype="multipart/form-data">
 								<div class="col-md-6">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Person Name " value=""
+										<input type="text" class="form-control" placeholder="Person Name *" value=""
 											name="name">
 									</div>
 									<div class="form-group">
@@ -325,6 +372,10 @@
 									<div class="upload-btn-wrapper">
 										<!-- <button class="btn">Upload Person Photo</button> -->
 										<input type="file" name="file1" />
+									</div>
+									<div class="form-group">
+										<input type="date" class="form-control" placeholder="found date*" value=""
+											name="lastseendate">
 									</div>
 									<!-- <div>
 										<p><label for="w3review"></label></p>
@@ -337,12 +388,12 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Phone Number *" value=""
-												name="phone">
+											<input type="text" class="form-control" placeholder="Phone Number *"
+												value="" name="phone">
 										</div>
 										<div class="form-group">
-											<input type="text" class="form-control" placeholder="Email address *" value=""
-												name="email">
+											<input type="text" class="form-control" placeholder="Email address *"
+												value="" name="email">
 										</div>
 										<div class="form-group">
 											<select class="form-control" name="country">
@@ -352,7 +403,7 @@
 												<option>Egypt</option>
 											</select>
 										</div>
-											<input type="submit" class="btnRegister" value="Find Match">
+										<input type="submit" class="btnRegister" value="Find Match" name="findMatch">
 									</div>
 								</div>
 							</form>
