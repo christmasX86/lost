@@ -127,8 +127,8 @@ def make_post(file, name, country, phone, email, lastseen, lastseendate, descrip
     sqlite3.register_converter("array", convert_array)
     con = sqlite3.connect("test2.db", detect_types=sqlite3.PARSE_DECLTYPES)
     cur = con.cursor()
-
-    # con.commit()
+    cur.execute('delete from found')
+    con.commit()
     # con.close()
 
     if len(known_face_encodings1) > 0:
@@ -137,22 +137,29 @@ def make_post(file, name, country, phone, email, lastseen, lastseendate, descrip
         i = 0
         rows = cur.execute("select * from found")  # .fetchall()
         for row in rows:
-            print(row[7].shape)
-            print(known_face_encodings1[0].shape)
+            # print(row[7].shape)
+            # print(known_face_encodings1[0].shape)
             match_results = face_recognition.compare_faces(
                 row[7], known_face_encodings1)
             i += 1
-            if match_results[0]:
+            if match_results[0]:  # Face found
                 is_same = True
                 # notify user
                 break
         if is_same == False:  # Face not found
-            cur.execute("insert into lost values (?, ?, ? , ? , ? ,?, ?, ?, ?, ?)", (name, country,
-                        phone, description, age, email, lastseen, imageFilename, lastseendate, known_face_encodings1[0],))
-
-            con.commit()
-            con.close()
             i = 0
+            rows = cur.execute("select * from lost")
+            for row in rows:
+                match_results = face_recognition.compare_faces(
+                    row[9], known_face_encodings1)
+                if match_results[0]:
+                    is_same = True
+                    break
+            if is_same == False:
+                cur.execute("insert into lost values (?, ?, ? , ? , ? ,?, ?, ?, ?, ?)", (name, country,
+                                                                                         phone, description, age, email, lastseen, imageFilename, lastseendate, known_face_encodings1[0],))
+                con.commit()
+                # con.close()
 
         # else:  # Face Found
             # pass
@@ -162,13 +169,16 @@ def make_post(file, name, country, phone, email, lastseen, lastseendate, descrip
     # Return the result as json
     if i != 0:  # Face Found
         data = cur.execute(
-            "select name, country, phone, email, lastseen, filename from lost where rowid = (?)", (i,))
-        return jsonify(data.fetchall())
+            "select name, country, phone, email, lastseen, filename from found where rowid = (?)", (i,))
+        return render_template("light_user_grid2.html", data=data.fetchall())
+        # return jsonify(data.fetchall())
+
     else:  # Face not found
-        return jsonify({
-            'face_found': face_found,
-            'is_same': is_same
-        })
+        return redirect('lost')
+        # return jsonify({
+        #     'face_found': face_found,
+        #     'is_same': is_same
+        # })
     # return jsonify({
     #     'face_found': True,
     #     'is_same': True
@@ -204,8 +214,10 @@ def detect_faces_in_image(file1, name1, country, phone, email, lastseen, lastsee
         face_found = True
         is_same = False
         i = 0
-        for row in cur.execute("select * from lost"):
-            print(row[9].shape)
+        rows = cur.execute("select * from lost")
+        for row in rows:
+            print(i)
+            # print(row[9].shape)
             match_results = face_recognition.compare_faces(
                 row[9], unknown_face_encodings1)
             i += 1
@@ -214,6 +226,20 @@ def detect_faces_in_image(file1, name1, country, phone, email, lastseen, lastsee
                 # notify user
                 break
         if is_same == False:  # Face not found
+            i = 0
+            rows = cur.execute("select * from found")
+            for row in rows:
+                match_results = face_recognition.compare_faces(
+                    row[7], unknown_face_encodings1)
+                if match_results[0]:
+                    is_same = True
+                    # notify user
+                    break
+            if is_same == False:
+                cur.execute("insert into found values (?, ?, ? , ? , ? ,?, ?, ?)", (name1, country,
+                            phone, email, lastseen,  imageFilename, lastseendate, unknown_face_encodings1[0],))
+                con.commit()
+
             # file1.save(secure_filename(file1.filename))
             # fn = os.path.basename(file1.filename)
 
@@ -222,12 +248,7 @@ def detect_faces_in_image(file1, name1, country, phone, email, lastseen, lastsee
             # file1.save(os.path.join(app.config["IMAGE_UPLOADS"], file1.filename))
             # filename = secure_filename(file1.filename)
             # file1.save(os.path.join(app.config['IMAGE_UPLOADS'], filename))
-            cur.execute("insert into found values (?, ?, ? , ? , ? ,?, ?, ?)", (name1, country,
-                        phone, email, lastseen,  imageFilename, lastseendate, unknown_face_encodings1[0],))
-
-            con.commit()
             # file1.save(secure_filename(file1.filename))         # save el file bs mish sha8ala byde 0 fl size
-            i = 0
             # con.close()
         # else:  # Face Found
             # pass
@@ -239,10 +260,10 @@ def detect_faces_in_image(file1, name1, country, phone, email, lastseen, lastsee
         data = cur.execute(
             "select name, country, phone, email, lastseen, filename from lost where rowid = (?)", (i,))
         # return jsonify(data.fetchall())
-        return render_template("light_user_grid2.html", data=data.fetchall())
+        return render_template("light_user_grid.html", data=data.fetchall())
         # return redirect('found')
     else:  # Face not found
-        return redirect('lost')
+        return redirect('found')
         # return render_template("light_user_grid.html", data=data.fetchall())
         # return jsonify({
         #     'face_found': face_found,
@@ -264,7 +285,6 @@ def postslost():
     data = cur.execute(
         "select name, country, phone, email, lastseen, filename from found ")
     con.commit()
-
     return render_template("light_user_grid2.html", data=data.fetchall())
 
 
